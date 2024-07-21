@@ -38,3 +38,11 @@ Vertex La Rochelle has degree 5
 Vertex NancyFrankfurt has degree 2
 ```
 ![alt text](./tgv_graph.png)
+
+```
+DFS algorithm path:
+Marseille Nice Montpellier Barcelona Grenoble Milano Lyon Saint-Etienne Geneve Paris London Lille Bruxelles Amsterdam Nantes Bordeaux Rennes La Rochelle Saint-Malo Brest Quimper Hendaye Toulouse Pau Reims Strasbourge Luxemburg Nancy Frankfurt Stuttgart Colmar Zurich 
+
+BFS algorithm path
+Marseille Nice Montpellier Lyon Grenoble Barcelona Paris Geneve Saint-Etienne Zurich Milano London Nancy Luxemburg Strasbourge Frankfurt Stuttgart Lille Reims Bruxelles Nantes Rennes La Rochelle Bordeaux Colmar Amsterdam Saint-Malo Quimper Brest Toulouse Hendaye Pau 
+```

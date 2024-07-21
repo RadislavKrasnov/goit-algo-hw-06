@@ -1,8 +1,8 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 
-def create_tgv_graph():
-    tgv_graph = {
+def get_tgv_graph_data():
+    return {
         'Paris': [
             'London', 
             'Bruxelles', 
@@ -19,7 +19,12 @@ def create_tgv_graph():
             'Zurich',
             'Frankfurt',
             'Stuttgart',
-            'Bordeaux'
+            'Bordeaux',
+        ],
+        'London': [
+            'Paris',
+            'Lille',
+            'Bruxelles',
         ],
         'Lyon': [
             'Saint-Etienne',
@@ -28,7 +33,7 @@ def create_tgv_graph():
             'Paris',
             'Zurich',
             'Grenoble',
-            'Montpellier'
+            'Montpellier',
         ],
         'Marseille': [
             'Nice',
@@ -40,33 +45,33 @@ def create_tgv_graph():
             'Barcelona',
             'Marseille',
             'Grenoble',
-            'Lyon'
+            'Lyon',
         ],
         'Barcelona': [
             'Montpellier',
         ],
         'Nice': [
-            'Marseille'
+            'Marseille',
         ],
         'Grenoble': [
             'Milano',
-            'Lyon'
+            'Lyon',
         ],
         'Saint-Etienne': [
-            'Lyon'
+            'Lyon',
         ],
         'Milano': [
-            'Grenoble'
+            'Grenoble',
         ],
         'Geneve': [
             'Paris',
             'Lyon',
-            'Zurich'
+            'Zurich',
         ],
         'Zurich': [
             'Paris',
             'Lyon',
-            'Geneve'
+            'Geneve',
         ],
         'Reims': [
             'Paris',
@@ -75,7 +80,7 @@ def create_tgv_graph():
             'Nancy',
             'Frankfurt',
             'Stuttgart',
-            'Luxemburg'
+            'Luxemburg',
         ],
         'Luxemburg': [
             'Paris',
@@ -83,7 +88,7 @@ def create_tgv_graph():
             'Strasbourge',
             'Nancy',
             'Stuttgart',
-            'Frankfurt'
+            'Frankfurt',
         ],
         'Nancy': [
             'Luxemburg',
@@ -91,7 +96,7 @@ def create_tgv_graph():
             'Paris',
             'Frankfurt',
             'Stuttgart',
-            'Strasbourge'
+            'Strasbourge',
         ],
         'Frankfurt': [
             'Luxemburg',
@@ -99,41 +104,41 @@ def create_tgv_graph():
             'Paris',
             'Stuttgart',
             'Strasbourge',
-            'Nancy'
+            'Nancy',
         ],
         'Stuttgart': [
             'Luxemburg',
             'Reims',
             'Paris',
             'Strasbourge',
-            'Nancy'
-            'Frankfurt'
+            'Nancy',
+            'Frankfurt',
         ],
         'Strasbourge': [
             'Luxemburg',
             'Reims',
             'Paris',
             'Colmar',
-            'Nancy'
+            'Nancy',
             'Frankfurt',
-            'Stuttgart'
+            'Stuttgart',
         ],
         'Colmar': [
-            'Strasbourge'
+            'Strasbourge',
         ],
         'Lille': [
             'Paris',
             'London',
-            'Bruxelles'
+            'Bruxelles',
         ],
         'Bruxelles': [
             'Amsterdam',
             'Lille',
             'Paris',
-            'London'
+            'London',
         ],
         'Amsterdam': [
-            'Bruxelles'
+            'Bruxelles',
         ],
         'Rennes': [
             'Paris',
@@ -146,20 +151,20 @@ def create_tgv_graph():
         ],
         'Saint-Malo': [
             'Rennes',
-            'Brest'
+            'Brest',
         ],
         'Brest': [
             'Rennes',
-            'Saint-Malo'
+            'Saint-Malo',
         ],
         'Quimper': [
-            'Rennes'
+            'Rennes',
         ],
         'Nantes': [
             'Paris',
             'Bordeaux',
             'La Rochelle',
-            'Rennes'
+            'Rennes',
         ],
         'Bordeaux': [
             'Paris',
@@ -169,6 +174,12 @@ def create_tgv_graph():
             'Hendaye',
             'Pau',
             'Toulouse',
+        ],
+        'La Rochelle': [
+            'Bordeaux',
+            'Paris',
+            'Rennes',
+            'Nantes',
         ],
         'Toulouse': [
             'Bordeaux',
@@ -187,6 +198,9 @@ def create_tgv_graph():
         ]
     }
 
+def create_tgv_graph():
+    tgv_graph = get_tgv_graph_data()
+
     return nx.Graph(tgv_graph)
 
 def visualize_graph(G):
@@ -202,9 +216,10 @@ def get_edges_qty(G):
 def get_vertices_degrees(G):
     return G.degree()
 
-G = create_tgv_graph()
-print(f'Vertices quantity in the graph: {get_vertices_qty(G)}')
-print(f'Edges quantity in the graph: {get_edges_qty(G)}')
-for vertex in get_vertices_degrees(G):
-    print(f'Vertex {vertex[0]} has degree {vertex[1]}')
-visualize_graph(G)
+if __name__ == '__main__':
+    G = create_tgv_graph()
+    print(f'Vertices quantity in the graph: {get_vertices_qty(G)}')
+    print(f'Edges quantity in the graph: {get_edges_qty(G)}')
+    for vertex in get_vertices_degrees(G):
+        print(f'Vertex {vertex[0]} has degree {vertex[1]}')
+    visualize_graph(G)
