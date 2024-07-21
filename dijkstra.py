@@ -235,7 +235,7 @@ def visualize_weighted_graph(weighted_graph):
     nx.draw_networkx_edges(G, pos, edgelist=G.edges(data=True), width=2)
     nx.draw_networkx_labels(G, pos, font_size=12, font_family='sans-serif')
     nx.draw_networkx_edge_labels(G, pos, edge_labels=weights)
-    plt.title('TGV travel time among cities of Europe')
+    plt.title('TGV travel time among cities of Europe, hours')
     plt.show()
 
 weighted_graph = get_weighted_graph()
