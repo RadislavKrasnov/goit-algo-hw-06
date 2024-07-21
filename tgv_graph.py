@@ -218,7 +218,9 @@ def get_vertices_degrees(G):
 if __name__ == '__main__':
     G = create_tgv_graph()
     print(f'Vertices quantity in the graph: {get_vertices_qty(G)}')
+    print()
     print(f'Edges quantity in the graph: {get_edges_qty(G)}')
+    print()
     for vertex in get_vertices_degrees(G):
         print(f'Vertex {vertex[0]} has degree {vertex[1]}')
     visualize_graph(G)

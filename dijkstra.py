@@ -1,5 +1,8 @@
-def build_weighted_tgv_graph():
-    weighted_graph = {
+import networkx as nx
+import matplotlib.pyplot as plt
+
+def get_weighted_graph():
+    return {
         'Paris': {
             'London': 2, 
             'Bruxelles': 1, 
@@ -193,3 +196,49 @@ def build_weighted_tgv_graph():
             'Pau': 2,
         }
     }
+
+def dijkstra(graph, start):
+    distances = {vertex: float('infinity') for vertex in graph}
+    distances[start] = 0
+    unvisited = list(graph.keys())
+    visited = []
+
+    while unvisited:
+        current_vertex = min(unvisited, key=lambda vertex: distances[vertex])
+
+        if distances[current_vertex] == float('infinity'):
+            break
+
+        for neighbor, weight in graph[current_vertex].items():
+            distance = distances[current_vertex] + weight
+            if distance < distances[neighbor]:
+                distances[neighbor] = distance
+
+        visited.append(current_vertex)
+        unvisited.remove(current_vertex)
+        
+    return distances
+
+def print_shortest_paths(distances):
+    print('Shortest paths to all destinations in the network of TGV rail roads for Marseille city:')
+    for destination, time in distances.items():
+        print(f'{destination} - {time} hours')
+
+def visualize_weighted_graph(weighted_graph):
+    G = nx.Graph()
+    for vertex, destinations in weighted_graph.items():
+        for neighbor_destination, travel_time in destinations.items():
+            G.add_edge(vertex, neighbor_destination, weight=travel_time)
+    pos = nx.spring_layout(G)
+    weights = nx.get_edge_attributes(G, 'weight')
+    nx.draw_networkx_nodes(G, pos, node_size=300)
+    nx.draw_networkx_edges(G, pos, edgelist=G.edges(data=True), width=2)
+    nx.draw_networkx_labels(G, pos, font_size=12, font_family='sans-serif')
+    nx.draw_networkx_edge_labels(G, pos, edge_labels=weights)
+    plt.title('TGV travel time among cities of Europe')
+    plt.show()
+
+weighted_graph = get_weighted_graph()
+distances = dijkstra(weighted_graph, 'Marseille')
+print_shortest_paths(distances)
+visualize_weighted_graph(weighted_graph)
