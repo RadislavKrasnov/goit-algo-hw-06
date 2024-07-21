@@ -75,7 +75,6 @@ def get_tgv_graph_data():
         ],
         'Reims': [
             'Paris',
-            'La Rochelle', 
             'Strasbourge', 
             'Nancy',
             'Frankfurt',

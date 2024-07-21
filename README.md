@@ -46,3 +46,6 @@ Marseille Nice Montpellier Barcelona Grenoble Milano Lyon Saint-Etienne Geneve P
 BFS algorithm path
 Marseille Nice Montpellier Lyon Grenoble Barcelona Paris Geneve Saint-Etienne Zurich Milano London Nancy Luxemburg Strasbourge Frankfurt Stuttgart Lille Reims Bruxelles Nantes Rennes La Rochelle Bordeaux Colmar Amsterdam Saint-Malo Quimper Brest Toulouse Hendaye Pau 
 ```
+
+https://www.reddit.com/r/TransitDiagrams/comments/loijhs/oc_my_first_transit_diagram_simplified_map_of/#lightbox
+https://www.chronotrains.com/en
